@@ -1,3 +1,4 @@
+
 const MongoClient = require('mongodb').MongoClient
 const mongoose=require('mongoose')
 const validator=require('validator')
@@ -7,8 +8,7 @@ mongoose.connect('mongodb+srv://anika210421:Jaimaatadi4@cluster0.dun0e9e.mongodb
     useUnifiedTopology: true
 }).then(()=>{ 
     console.log('Connected to Database')
-    
+
 }).catch((error)=>{
     console.log(error)
 })
-
