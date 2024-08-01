@@ -16,14 +16,19 @@ const studentSchema=new mongoose.Schema({
     },
     house:{
         type:String,
-       required:true
-
+        default: function(){
+            const houses=['Gryffindor','Slytherin','Hufflepuff','Ravenclaw']
+            const a=Math.random()
+            const b=Math.floor(a*4)
+            return houses[b]
+        }
     },
     wizard:{
         type:Boolean,
         required:true
     }
 })
+
 
 const Student=mongoose.model('Student', studentSchema)
 module.exports=Student
