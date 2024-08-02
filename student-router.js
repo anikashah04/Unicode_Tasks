@@ -69,7 +69,24 @@ router.patch('/characters/:id', async(req,res)=>{
         res.status(500).send(error)
     }
 })
-//DELETE
+
+//DELETE MUGGLES
+router.delete('/characters/muggles' , async (req,res)=>{
+    try{
+        const students=await Student.find({wizard:false})
+        const muggles=new Array()
+        for(var i=0; i<students.length; i++){
+            muggles.push(students[i])
+            const muggle=await Student.findByIdAndDelete(students[i]._id)
+        }
+        res.send(students).status(200)
+    }
+    catch(error){
+        res.send(error).status(500)
+    }
+})
+
+//DELETE STUDENT 
 router.delete('/characters/:id', async(req,res)=>{
     try{
         const character= await Student.findByIdAndDelete(req.params.id)
