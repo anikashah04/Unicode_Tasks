@@ -89,7 +89,7 @@ app.get('/character/:id', async(req,res)=>{
         res.status(200).send(characterJSON)
     }
     catch(error){
-        res.status(500).send('Unable to finf character '+error)
+        res.status(500).send('Unable to find character '+error)
     }
 })
 
